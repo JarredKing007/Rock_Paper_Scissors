@@ -1,0 +1,111 @@
+import random
+
+
+def the_game():
+    print("The game starts")
+    user_points = 0
+    computer_points = 0
+    go_on = True
+    while go_on:
+        if user_points or computer_points == 3:
+            if user_points == 3:
+                print(f"Congrats you defeated a machine which has no brain by {user_points} - {computer_points}")
+                user_points += 1
+                computer_points += 1
+                go_on = False
+            elif computer_points == 3:
+                print(f"Oops you lost to a brainless machine by {computer_points} - {user_points}")
+                user_points += 1
+                computer_points += 1
+                go_on = False
+
+        else:
+            user_choice = str(input("Choose a option: ")).lower()
+            choices = ["rock", "paper", "scissors"]
+            computer_choice = random.choice(choices)
+
+            if computer_choice == user_choice:
+                print(f'''Computer chose {computer_choice} 
+                                Its a draw!
+                                The score is You:{user_points} - Computer:{computer_points}''')
+
+            elif user_choice == "rock":
+                if computer_choice == "paper":
+                    computer_points += 1
+                    print(f'''Computer chose {computer_choice}
+                                You Lose :(
+                                The score is You:{user_points} - Computer:{computer_points}''')
+                elif computer_choice == "scissors":
+                    user_points += 1
+                    print(f'''Computer chose {computer_choice}
+                                You Win!!! :)
+                                The score is You:{user_points} - Computer:{computer_points}''')
+
+            elif user_choice == "paper":
+                if computer_choice == "scissors":
+                    computer_points += 1
+                    print(f'''Computer chose {computer_choice}
+                                You Lose :(
+                                The score is You:{user_points} - Computer:{computer_points}''')
+                elif computer_choice == "rock":
+                    user_points += 1
+                    print(f'''Computer chose {computer_choice}
+                                You Win!!! :)
+                                The score is You:{user_points} - Computer:{computer_points}''')
+
+            elif user_choice == "scissors":
+                if computer_choice == "rock":
+                    computer_points += 1
+                    print(f'''Computer chose {computer_choice}
+                                You Lose :(
+                                The score is You:{user_points} - Computer:{computer_points}''')
+                elif computer_choice == "paper":
+                    user_points += 1
+                    print(f'''Computer chose {computer_choice}
+                                You Win!!! :)
+                                The score is You:{user_points} - Computer:{computer_points}''')
+
+            else:
+                print("Invalid Command")
+
+
+def commands_for_the_game():
+    print('''Commands to use:
+ Rock - To choose rock
+ Paper - To choose paper
+ Scissors - To choose scissors
+ Try Again - To try again
+''')
+
+
+def rules_of_the_game():
+    print('''The rules are simple:
+You can pick one of the three choices - Rock, Paper or Scissor
+ Rock crushes the scissors and wins
+ Paper wraps around the rock and wins
+ Scissors cut paper and wins
+''')
+
+
+print('''ROCK PAPER SCISSORS......GO!!!
+-------------------------------
+TO PLAY JUST TYPE "START"
+TO SEE THE RULES TYPE "RULES"(people who choose to see the rules always loose :I) 
+TO VIEW THE COMMANDS TYPE "HELP"
+TO QUIT LIKE A LOSER TYPE "QUIT"
+------MADE BY JARREDKING007----''')
+user_command = str(input("> ")).lower()
+while True:
+    if user_command == "start":
+        the_game()
+    elif user_command == "rules":
+        rules_of_the_game()
+    elif user_command == "help":
+        commands_for_the_game()
+    elif user_command == "quit":
+        break
+    elif user_command == "krish is the best":
+        print("Thanks for saying that")
+        break
+    else:
+        print("Please enter a valid command!")
